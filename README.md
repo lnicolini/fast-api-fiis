@@ -13,18 +13,25 @@ A idéia é evoluir a API com o tempo adicionando novas funcionalidades, como re
 
 ### Como Executar?
 Fazer o git clone do projeto para a sua máquina
-```git clone https://github.com/lnicolini/fast-api-fiis.git
+```shell
+git clone https://github.com/lnicolini/fast-api-fiis.git
 ```
-Adicionar o arquivo `.env` na pasta do projeto como no exemplo abaixo:
+Adicionar o arquivo `.env` na pasta do projeto podendo utilizar o exemplo abaixo:
 ```PG_USER=admin
 PG_PASS=admin
 PG_DB=fastapi
 DATABASE_URL=postgresql+asyncpg://admin:admin@localhost:5432/fastapi
 PYTHONPATH=/home/luan/Estudo/fast_api
 ```
-Iniciar o serviços do **postgres** e do **pgadmin**
+Iniciar o serviço do **postgres** e do **pgadmin** (opcional)
 ```shell
 docker-compose up -d
+```
+Para acessar o pgAdmin
+```shell
+http://127.0.0.1:5050/login
+Login: "admin@gmail.com"
+Password: "admin"
 ```
 Iniciar o ambiente de desenvolvimento com o pipenv
 ```shell
@@ -45,8 +52,6 @@ uvicorn main:app --port 8080
 
 ## Endpoints
 
-Endpoints definidos até o presente momento:
-
 - POST `/user/create` - Cria novos usuários
 - GET `/user/list` - Lista todos os usuários cadastrados
 - POST `/transaction/create` - Cria uma nova transação
@@ -56,5 +61,5 @@ Endpoints definidos até o presente momento:
 - DELETE `/transaction/delete/{cod_transaction}` - Deleta a transação pelo código único (UUID)
 
 ## Docs
-http://127.0.0.1:8080/docs
+http://127.0.0.1:8080/docs  
 http://127.0.0.1:8080/redoc
