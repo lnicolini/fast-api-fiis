@@ -1,5 +1,5 @@
 # fast-api-fiis
-API Controle de Investimentos Imobiliários - FIIS.
+**API Controle de Investimentos Imobiliários - FIIS.**
 
 Com o objetivo de estudar a linguagem Python e o Framework FastApi, resolvi desenvolver
 uma API bem simples para inclusão de Compras e Vendas de Fundos Imobiliários.
@@ -22,3 +22,39 @@ PG_DB=fastapi
 DATABASE_URL=postgresql+asyncpg://admin:admin@localhost:5432/fastapi
 PYTHONPATH=/home/luan/Estudo/fast_api
 ```
+Iniciar o serviços do **postgres** e do **pgadmin**
+```shell
+docker-compose up -d
+```
+Iniciar o ambiente de desenvolvimento com o pipenv
+```shell
+pipenv shell
+```
+Instalar as dependências do Python
+```shell
+pipenv install
+```
+Criar a estrutura do Banco de Dados
+```shell
+python database/init_db.py
+```
+Iniciar a Aplicação
+```shell
+uvicorn main:app --port 8080
+```
+
+## Endpoints
+
+Endpoints definidos até o presente momento:
+
+- POST `/user/create` - Cria novos usuários
+- GET `/user/list` - Lista todos os usuários cadastrados
+- POST `/transaction/create` - Cria uma nova transação
+- GET `/transaction/list` - Listas todos as transações realizadas
+- GET `/transaction/list_by_transaction/{cod_transaction}` - Lista a transação pelo código único (UUID)
+- GET `/transaction/list_by_user/{idt_user}` - Lista todas as transações de um usuário específico
+- DELETE `/transaction/delete/{cod_transaction}` - Deleta a transação pelo código único (UUID)
+
+## Docs
+http://127.0.0.1:8080/docs
+http://127.0.0.1:8080/redoc
