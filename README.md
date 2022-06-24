@@ -30,8 +30,8 @@ docker-compose up -d
 Para acessar o pgAdmin
 ```shell
 http://127.0.0.1:5050/login
-Login: "admin@gmail.com"
-Password: "admin"
+Login: admin@gmail.com
+Password: admin
 ```
 Iniciar o ambiente de desenvolvimento com o pipenv
 ```shell
